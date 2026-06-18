@@ -1,117 +1,193 @@
-# **Pharma Commercial Analytics Platform**
-## **Overview**
+# Pharma Commercial Analytics Platform
 
-This project demonstrates the design and implementation of a production-style Data Engineering solution on Snowflake for pharmaceutical commercial analytics.
+## Overview
 
-The platform ingests healthcare provider (HCP), patient enrollment, and prescription datasets from AWS S3 into Snowflake, applies automated transformations using Streams and Tasks, and delivers business-ready metrics for reporting and analysis.
+The Pharma Commercial Analytics Platform is an end-to-end cloud-native data engineering and analytics solution built on AWS S3, Snowflake, and Tableau.
 
-## **Business Problem**
+The platform ingests healthcare provider, prescription, taxonomy, and enrollment datasets into Snowflake, applies business transformations through a multi-layer architecture, and delivers analytics-ready data marts for reporting and dashboard consumption.
 
-Pharmaceutical organizations rely on multiple data sources to track commercial performance. This project centralizes provider, enrollment, and prescription data to provide insights into:
+The project demonstrates modern Data Engineering, Data Modeling, Analytics Engineering, and Business Intelligence concepts using real-world healthcare datasets.
 
-Total Enrollments
-New Enrollments
-Total TRx
-Total NRx
-HCPs with New Enrollments
-Territory Performance
-Specialty Performance
+---
 
+## Business Problem
 
-## Solution Architecture
+Pharmaceutical organizations require a centralized analytics platform to monitor:
 
-```mermaid
-flowchart LR
+- Healthcare Provider (HCP) performance
+- Patient enrollments
+- Prescription activity
+- Product adoption
+- Regional performance
+- Commercial KPIs
 
-    A[📥 Ingestion Layer] --> B[⚙️ Transformation Layer]
-    B --> C[📊 Consumption Layer]
+The objective of this project is to build a scalable analytics platform that transforms raw healthcare datasets into actionable business insights.
 
-    classDef ingest fill:#D6EAF8,stroke:#1F618D,color:#000;
-    classDef transform fill:#D5F5E3,stroke:#1E8449,color:#000;
-    classDef consume fill:#FCF3CF,stroke:#B7950B,color:#000;
+---
 
-    class A ingest;
-    class B transform;
-    class C consume;
-```
+## Architecture
 
-## Technology Stack by Layer
+Source Files
+↓
+AWS S3
+↓
+Snowflake Landing Layer
+↓
+Snowflake Foundation Layer
+↓
+Snowflake Curated Layer
+↓
+Snowflake Analytics Layer
+↓
+Tableau Dashboards
 
-```mermaid
-flowchart TB
+---
 
-    A[📥 Ingestion Layer]
+## Technology Stack
 
-    A --> A1[AWS S3]
-    A --> A2[Snowflake Stage]
-    A --> A3[Snowpipe]
-    A --> A4[CSV Files]
-    A --> A5[Metadata Tracking]
+| Component | Technology |
+|------------|------------|
+| Cloud Storage | AWS S3 |
+| Data Warehouse | Snowflake |
+| Data Processing | SQL |
+| Analytics Layer | Snowflake |
+| Visualization | Tableau |
+| Version Control | GitHub |
 
-    B[⚙️ Transformation Layer]
-
-    B --> B1[RAW Layer]
-    B --> B2[CURATED Layer]
-    B --> B3[Streams]
-    B --> B4[Tasks]
-    B --> B5[SQL Transformations]
-    B --> B6[Data Quality Checks]
-    B --> B7[Incremental Processing]
-
-    C[📊 Consumption Layer]
-
-    C --> C1[Tableau]
-    C --> C2[Power BI]
-    C --> C3[Business Users]
-
-    classDef ingest fill:#D6EAF8,stroke:#1F618D,color:#000;
-    classDef transform fill:#D5F5E3,stroke:#1E8449,color:#000;
-    classDef consume fill:#FCF3CF,stroke:#B7950B,color:#000;
-
-    class A,A1,A2,A3,A4,A5 ingest;
-    class B,B1,B2,B3,B4,B5,B6,B7 transform;
-    class C,C1,C2,C3 consume;
-```
-
-## **Technology Stack**
-
-  Snowflake
-  AWS S3
-  Snowpipe
-  Streams
-  Storage Integration
-  File Format
-  Tasks
-  SQL
-  Tableau
-  GitHub
-  
+---
 
 ## Data Layers
 
-### RAW Layer
-- Stores source files in their original format.
-- Preserves complete source data for auditing and reprocessing.
+### Landing Layer
 
-### CURATED Layer
-- Applies cleansing, standardization, and business rules.
-- Creates analytics-ready datasets.
+Stores source files received from external systems.
 
-### MART Layer
-- Provides reporting-ready datasets.
-- Calculates business KPIs and aggregates.
+### Foundation Layer
 
-## Project Goals
+Stores raw data with minimal transformation.
 
-- Build a scalable cloud-native data pipeline
-- Demonstrate Snowflake Data Engineering concepts
-- Implement automated ingestion and transformation workflows
-- Deliver pharma commercial analytics KPIs
+### Curated Layer
 
-## Future Enhancements
+Applies standardization, enrichment, and business rules.
 
-- dbt Integration
-- Data Quality Framework
-- CI/CD Pipeline
-- Snowpark Transformations
-- Monitoring & Alerting
+### Analytics Layer
+
+Creates reporting-ready data marts and KPI datasets.
+
+---
+
+## Data Sources
+
+### HCP Master
+
+National Provider Identifier (NPI) data containing provider demographics and taxonomy information.
+
+### Medicare Prescription Data
+
+Provider-level prescription activity and utilization metrics.
+
+### Taxonomy Data
+
+Healthcare provider taxonomy classifications and specialties.
+
+### Enrollment Data
+
+Synthetic patient enrollment dataset generated for commercial analytics use cases.
+
+---
+
+## Analytics Data Marts
+
+### HCP_PERFORMANCE
+
+Provider-level performance metrics.
+
+### EXECUTIVE_KPI_SUMMARY
+
+Enterprise KPI summary metrics.
+
+### STATE_PERFORMANCE
+
+State and regional performance metrics.
+
+### SPECIALTY_PERFORMANCE
+
+Specialty and classification level analytics.
+
+### PRODUCT_PERFORMANCE
+
+Product adoption and enrollment metrics.
+
+### MONTHLY_TRENDS
+
+Monthly enrollment and growth trends.
+
+---
+
+## Key KPIs
+
+### Enrollment KPIs
+
+- Total Enrollments
+- Active Patients
+- Pending Patients
+- Discontinued Patients
+
+### Prescription KPIs
+
+- Total Claims
+- Total Drug Cost
+- Total Beneficiaries
+- Total 30-Day Fills
+
+### HCP KPIs
+
+- Total HCPs
+- Top Performing HCPs
+- Claims by HCP
+
+### Geography KPIs
+
+- State Performance
+- Regional Performance
+- Enrollment Distribution
+
+---
+
+## Dashboard Pages
+
+### Executive Overview
+
+Enterprise KPI dashboard.
+
+### Enrollment Analytics
+
+Enrollment trends and product adoption.
+
+### HCP Performance
+
+Provider-level commercial performance.
+
+### Geography Analytics
+
+State and regional insights.
+
+### Product Analytics
+
+Product market share and enrollment performance.
+
+---
+
+## Repository Structure
+
+```text
+architecture/
+docs/
+sql/
+├── 01_create_database_objects.sql
+├── 02_create_foundation_tables.sql
+├── 03_load_foundation_tables.sql
+├── 04_generate_enrollment_data.sql
+├── 05_create_curated_layer.sql
+└── 06_create_analytics_layer.sql
+README.md
