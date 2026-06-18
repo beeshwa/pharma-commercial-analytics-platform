@@ -180,14 +180,39 @@ Product market share and enrollment performance.
 
 ## Repository Structure
 
+## Repository Structure
+
 ```text
-architecture/
-docs/
-sql/
-├── 01_create_database_objects.sql
-├── 02_create_foundation_tables.sql
-├── 03_load_foundation_tables.sql
-├── 04_generate_enrollment_data.sql
-├── 05_create_curated_layer.sql
-└── 06_create_analytics_layer.sql
-README.md
+pharma-commercial-analytics-platform/
+├── architecture/
+│   └── architecture.md
+├── docs/
+│   ├── Business_Requirements.md
+│   ├── Data_Dictionary.md
+│   ├── Data_Model.md
+│   └── Deployment_Guide.md
+├── sql/
+│   ├── 01_create_database_objects.sql
+│   ├── 02_create_foundation_tables.sql
+│   ├── 03_load_foundation_tables.sql
+│   ├── 04_generate_enrollment_data.sql
+│   ├── 05_create_curated_layer.sql
+│   └── 06_create_analytics_layer.sql
+└── README.md
+```
+
+## Future Enhancements
+
+Snowpipe Automation
+
+Streams & Tasks
+
+Data Quality Framework
+
+CI/CD Integration
+
+dbt Integration
+
+Snowpark Transformations
+
+Monitoring & Alerting
