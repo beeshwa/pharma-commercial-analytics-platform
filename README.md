@@ -160,25 +160,27 @@ Monthly enrollment and growth trends.
 
 Enterprise KPI dashboard.
 
+![Executive Overview](docs/Executive_Overview.png)
+
 ### Enrollment Analytics
 
 Enrollment trends and product adoption.
+
+![Enrollment Analytics](docs/Enrollments_Overview.png)
 
 ### HCP Performance
 
 Provider-level commercial performance.
 
+![HCP Performance](docs/HCP_Performance.png)
+
 ### Geography Analytics
 
 State and regional insights.
 
-### Product Analytics
-
-Product market share and enrollment performance.
+![Geography Analytics](docs/Geographical_Overview.png)
 
 ---
-
-## Repository Structure
 
 ## Repository Structure
 
