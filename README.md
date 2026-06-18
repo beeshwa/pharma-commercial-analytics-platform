@@ -185,12 +185,7 @@ Product market share and enrollment performance.
 ```text
 pharma-commercial-analytics-platform/
 ├── architecture/
-│   └── architecture.md
 ├── docs/
-│   ├── Business_Requirements.md
-│   ├── Data_Dictionary.md
-│   ├── Data_Model.md
-│   └── Deployment_Guide.md
 ├── sql/
 │   ├── 01_create_database_objects.sql
 │   ├── 02_create_foundation_tables.sql
