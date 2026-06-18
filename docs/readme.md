@@ -1,17 +1,17 @@
-## Dashboard Preview
+# Dashboard Preview
 
-### Executive Overview
+## Executive Overview
 
-![Executive Overview](docs/executive_overview.png)
+![Executive Overview](Executive_Overview.png)
 
-### Enrollment Analytics
+## Enrollment Analytics
 
-![Enrollment Analytics](docs/enrollment_overview.png)
+![Enrollment Analytics](Enrollments_Overview.png)
 
-### HCP Performance
+## HCP Performance
 
-![HCP Performance](docs/hcp_performance.png)
+![HCP Performance](HCP_Performance.png)
 
-### Geography Analytics
+## Geography Analytics
 
-![Geography Analytics](docs/geographical_overview.png)
+![Geography Analytics](Geographical_Overview.png)
